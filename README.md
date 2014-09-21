@@ -28,25 +28,27 @@ The whole data package can be downloaded at the following link:
 
 ## Data Analysis ##
 
-To perform the data analysis it is required to perform the following **4 steps**:
+To perform the data analysis it is required to perform the following **steps**:
 
 * **Clone** this repository into a folder on the local machine:
     `git clone https://github.com/leriomaggio/getting-and-cleaning-data.git` 
 
+*  **Set the Working Directory** to the folder where the Git repository has been cloned:
+
+        setwd("<CLONE REPO FOLDER PATH>")
+
 *  **Download and Unzip** the data package by clicking at the following url:
     [https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip]()
-    or by running the following commands into the **R Terminal Console**:
+    or by sourcing the `downloadata.R` w/ the command:
     
         source("./downloadata.R")
-        download.data()
 
     This R script will download the data package, and it will store the 
     downloaded package into a `dataset.zip` file located into the `datasets`
     folder.
     
-* **Source** the `run_analysis.R` script:
+* **Source** the `run_analysis.R` script: 
 
-        setwd("<CLONE REPO FOLDER PATH>")
         source("run_analysis.R")
 
   Sourcing the `run_analysis.R` script will perform the actual analysis. In particular:
