@@ -10,6 +10,10 @@
 # - Creates a second, independent tidy data set with the average of each variable 
 #   for each activity and each subject.
 
+# NOTES: 
+# Coding style follows the *Google's R Style guide* reported in:
+# https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml
+
 # ---------------
 # Analysis steps:
 # ---------------
