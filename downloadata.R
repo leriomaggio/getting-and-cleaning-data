@@ -10,9 +10,14 @@ download.data <- function () {
   
   # Get Current WD
   current.wd <- get.filepath()
+  dataset.folder <- file.path(current.wd, 'dataset')
+  
+  if (!file.exists(dataset.folder)){
+    dir.create(dataset.folder)
+  }
   
   zip.url <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
-  zip.file <- file.path(current.wd, 'dataset', 'dataset.zip')
+  zip.file <- file.path(dataset.folder, 'dataset.zip')
   
   # NOTE: please remove `method = 'curl' if you're not running this 
   # script on a Mac OSX machine
