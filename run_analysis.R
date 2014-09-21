@@ -63,7 +63,6 @@ features.selected <- grep("-mean\\(\\)|-std\\(\\)", features[, 2])
 X <- X[, features.selected]  # subset X by selecting only mean and std
 names(X) <- features[features.selected, 2]
 names(X) <- gsub("\\(|\\)", "", names(X))  # Remove brackets
-names(X) <- tolower(names(X))  # borrowed from `Editing Text Variables` (week 4)
 
 # -------------------------------------------------------------------------
 # 3. Uses descriptive activity names to name the activities in the dataset
@@ -73,9 +72,6 @@ message("Performing Step 3: Rename activities in the dataset")
 
 # Read Activities
 activities <- read.table(file.path(folder.dataset, "activity_labels.txt"))
-
-# Strip underscores from labels to allow for pretty-printed names
-activities[, 2] <- gsub("_", "", tolower(as.character(activities[, 2])))
 
 y[,1] <- activities[y[,1], 2]
 names(y) <- "activity"  # set names of labels (i.e., y) to 'activity'
@@ -111,9 +107,9 @@ for (s in 1:subjects.len) {
 	for (a in 1:activities.len) {
 	  data.tidy[row, 1] = subjects.unique[s]
 	  data.tidy[row, 2] = activities[a, 2]
-		sub <- data.cleaned[data.cleaned$subject==s & 
+		subset <- data.cleaned[data.cleaned$subject==s & 
                         data.cleaned$activity==activities[a, 2], ]
-		data.tidy[row, 3:columns] <- colMeans(sub[, 3:columns])
+		data.tidy[row, 3:columns] <- colMeans(subset[, 3:columns])
 		row <- row+1
 	}
 }

@@ -100,21 +100,17 @@ All measurements correspond to `numeric` (real) numbers in the range `(-1, 1)`.
 In this step, the script reads the file `activity_labels.txt`, and applies descriptive 
 activity names to name the activities in the data set, namely:
 
-- walking
-- walkingupstairs
-- walkingdownstairs
-- sitting
-- standing
-- laying
-
-**Note:** Original Activity names are all made lowercase and underscore characters ("_") are stripped.
-This is just to make cleaned data more *machine* (*program*) understandable rather than *human*
-understandable.
+- WALKING
+- WALKING_UPSTAIRS
+- WALKING_DOWNSTAIRS
+- SITTING
+- STANDING
+- LAYING
 
 ### Appropriately labels the data set with descriptive variable names. ###
 
 The script properly labels the dataset with descriptive names:
-all feature names and activity names are converted to lower case,
+all feature names and activity names are converted to ,
 underscores and brackets ("(", ")") are removed.
 
 Finally, all the data are merged into a single `10299x68` data frame corresponding to:
@@ -207,3 +203,5 @@ Again, the data frame contains:
 - `subject IDs` in the 1st column;
 - `activity labels` in the 2nd column;
 - the average of `features` in the next 66 columns.
+
+**NOTE**: Please note that data in the tidy dataset are grouped by **subject**.
