@@ -101,12 +101,12 @@ subjects.len <-  length(subjects.unique)
 activities.len <- length(activities[,1])
 columns <- ncol(data.cleaned)
 
-data.tidy = data.cleaned[1:(subjects.len * activities.len), ]
-row = 1
+data.tidy <- data.cleaned[1:(subjects.len * activities.len), ]
+row <- 1
 for (s in 1:subjects.len) {
 	for (a in 1:activities.len) {
-	  data.tidy[row, 1] = subjects.unique[s]
-	  data.tidy[row, 2] = activities[a, 2]
+	  data.tidy[row, 1] <- subjects.unique[s]
+	  data.tidy[row, 2] <- activities[a, 2]
 		subset <- data.cleaned[data.cleaned$subject==s & 
                         data.cleaned$activity==activities[a, 2], ]
 		data.tidy[row, 3:columns] <- colMeans(subset[, 3:columns])
