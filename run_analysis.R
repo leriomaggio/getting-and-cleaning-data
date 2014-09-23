@@ -63,6 +63,7 @@ features.selected <- grep("-mean\\(\\)|-std\\(\\)", features[, 2])
 X <- X[, features.selected]  # subset X by selecting only mean and std
 names(X) <- features[features.selected, 2]
 names(X) <- gsub("\\(|\\)", "", names(X))  # Remove brackets
+names(X) <- gsub("\\-", " ", names(X))  # Replace dashes w/ blank spaces
 
 # -------------------------------------------------------------------------
 # 3. Uses descriptive activity names to name the activities in the dataset
@@ -116,6 +117,7 @@ for (s in 1:subjects.len) {
 
 # Write the Tidy Dataset to file
 write.table(data.tidy, 
-            file.path(current.wd, "tidy_dataset_with_average_values.txt"))
+            file.path(current.wd, "tidy_dataset_with_average_values.txt"), 
+            row.names = FALSE)
 
 message("tidy_dataset_with_average_values.txt file created!")
